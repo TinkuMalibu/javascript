@@ -2,9 +2,16 @@
 
 <script>
 
-let list = [["cereal", 3], ["milk", 2], ["bananas", 3], ["juice", 2], ["eggs", 12]];
+const removeQueu = (arr, elem) => {
+  arr.push(elem);
+return arr.shift();
+};
 
-console.log()
+const myArray = [1, 2, 3, 4, 5];
+console.log("Before: " + JSON.stringify(myArray));
+
+console.log(removeQueu(myArray, 6));
+console.log("After: " + JSON.stringify(myArray));
+
 
 </script>
- 
