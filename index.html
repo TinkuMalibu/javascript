@@ -2,17 +2,330 @@
 
 <script>
 
-const removeQueu = (arr, elem) => {
-  arr.push(elem);
-return arr.shift();
+// construcción de objetos complejos
+// array de objetos
+// Cómo accder a cada objeto
+
+let pizzaOptions = [
+  {
+    "name": "Muzzarella",
+    "size": "Big",
+    "price": 20.45,
+    "ingredients": ["cheesse", "olives", "onion"],
+    "Delivery": true
+  },
+  {
+    "name": "Napolitana",
+    "size": "Medium",
+    "price": 16.45,
+    "ingredients": ["cheesse", "tomato", "onion"],
+    "Delivery": false
+  }
+];
+
+console.log(pizzaOptions[1]["name"]);
+console.log(pizzaOptions[1]["size"]);
+
+
+const recipe = {
+  "description": "Chocolate cake",
+  "price": 200,
+  "ingredients": {
+    "dough": {
+      "flavour": 250,
+      "salt": "1 tee spoon",
+      "water": "1 cup"
+    },
+    "cover": {
+      "sugar": "120 gr",
+      "chocolate": "4 spoons",
+      "butter": "200 gr"
+
+    }
+  }
 };
 
-const myArray = [1, 2, 3, 4, 5];
-console.log("Before: " + JSON.stringify(myArray));
-
-console.log(removeQueu(myArray, 6));
-console.log(removeQueu(myArray, 7));
-console.log("After: " + JSON.stringify(myArray));
+console.log(recipe.ingredients.dough["flavour"]);
+console.log(recipe.ingredients.dough["salt"]);
+console.log(recipe.ingredients.dough["water"]);
 
 
+const myFlora = [{
+  "flora": "flores",
+  "type": [
+    "roses",
+    "tulips",
+    "abedul"
+  ]
+},
+  {
+    "flora": "árboles",
+    "type": [
+      "abedul",
+      "pino",
+      "paloBorracho"
+    ]
+  }
+];
+
+//Como accedo a tulips?
+
+let tipoFlor2 = myFlora[0].type[1];
+let tipoArbol = myFlora[1].type[2];
+
+console.log(tipoFlor2);
+console.log(tipoArbol);
+
+
+let recordCollection = {
+  546: {
+    "title": "The Night at The Opera",
+    "artist": "Queen",
+    "songs": [
+      "love of my life",
+      "bohemian Rhapsody"
+    ]
+  },
+  789: {
+    "title": "The White Album"
+      }
+  };
+
+const updateRecords = (records, id, property, value) => {
+  if (value === "") {
+    delete records[id][property];
+  } else if (property === "songs") {
+    records[id][property] = records[id][property] || [];
+    records[id][property].push(value);
+  } else {
+    records[id][property] = value;
+  }
+};
+
+
+let i = 0;
+while (i <= 3) {
+  console.log("you are gonna make it right");
+  i++;
+};
+
+let myArray = [];
+let int = 0;
+
+
+
+while (int < 10) {
+  myArray.push(int);
+  int++;
+}
+
+console.log(myArray);
+
+let numbers = [ 2, 3, 4, 5, 6, 7, 8, 100];
+
+while (numbers.length > 6) {
+  numbers.pop();
+}
+
+console.log(numbers);
+
+let miArreglo = []
+for (let integer = 0; integer < 10; integer+=5) {
+miArreglo.push(integer);
+
+}
+
+console.log(miArreglo);
+
+
+// For Loop para números impares
+
+
+let myArray = [];
+
+  for (let i = 2; i < 10; i+=2){
+  myArray.push(i);
+  }
+
+console.log(myArray);
+
+
+ let languages= ["Javascript", "Python", "Java", "Ruby"];
+let length = languages.length
+
+
+for (let i = 0; i < length; i++) {
+ languages[i] = languages[i].toUpperCase();
+
+}
+
+console.log(languages);
+
+let evenNumbers = (arr) => {
+  let total = 0;
+
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 == 0) {
+     total++;
+    }
+  }
+return total;
+}
+
+console.log(evenNumbers([2, 5 ,7, 8, 18]));
+
+let myArray = [["hola", "chau", "hello"], ["rata", "conejo", "codorniz"], ["alcon","gato", "perro"]];
+
+for (i = 0; i < myArray.length; i++) {
+  myArray[i] = myArray[i].toUpperCase();
+}
+console.log(myArray);
+
+// Profile search. Ejercicio
+
+let contacts = [ {
+  "name": "Harry",
+  "surname": "Potter",
+  "id": 400,
+  "preferences": ["magic", "Quiddich", "chocolate"]
+},
+ {
+  "name": "Hermione",
+  "surname": "Gringer",
+  "id": 600,
+  "preferences": ["books", "studying", "being smart"]
+ },
+ {
+  "name": "Ron",
+  "surname": "Weasly",
+  "id": 900,
+  "preferences": ["Hermione", "rats", "beer"]
+ }
+]
+
+
+
+let profileSearch = (name, property) => {
+  for (let i = 0; i < contacts.length; i ++) {
+    if (contacts[i].name === name) {
+      return contacts[i][property] || "la propiedad no existe";
+    }
+  }
+  return "el contacto no existe";
+}
+console.log(profileSearch("Harry", "preferences"));
+console.log(profileSearch("Harry", "food"));
+console.log(profileSearch("Lupin", "id"));
+
+// números aleatorios
+// Math.random
+//Math.floor
+
+let randomNumber = Math.random();
+
+console.log(randomNumber);
+
+let randomNumber1al19 = Math.floor(Math.random() * 20);
+
+console.log(randomNumber1al19);
+
+
+//Random number entre dos enteros
+
+let randomWholeNumber = (numeroInferior, numeroSuperior) => {
+  return Math.floor(Math.random() * (numeroSuperior - numeroInferior + 1) + numeroInferior );
+
+}
+
+for (let i = 0; i < 20; i++) {
+  console.log(randomWholeNumber(3, 8));
+}
+
+
+let minimunNumber = (x, y) => {
+  return x < y ? x : y;
+}
+
+
+// convertir estos condicionales en ternarios.
+
+let compareNumbers = (a, b) => {
+  if (A === B) {
+    return " A y B son iguales";
+  } else if (a > b) {
+    return "A es mayor a B";
+
+  } else {
+    "B es mayor a A";
+  }
+}
+
+
+let ternarioComparativo = (a, b) => {
+  return a === b ? "A es igual a B"
+    : a > b ? "A es mayor a B"
+    : "B es mayor a A";
+}
+
+console.log(ternarioComparativo(10,10));
+
+for (var i = 0; i < 3; i ++)  {
+  console.log(i);
+}
+
+console.log("variable" + " " + i);
+
+// modificar una constante
+
+const MY_ARRAY = [1,2,3,4,5];
+
+   MY_ARRAY[3] = 8;
+
+console.log(MY_ARRAY);
+
+
+// agregar propiedad a un objeto
+
+let colores = {
+  "camisa" : "verde",
+  "pantalon" : "azul",
+  "pollera": "amarilla",
+};
+
+delete colores.camisa;
+
+colores.saco = "negro", // No se agrega por el Object.freeze
+  colores.camisa = " blanca",
+
+  console.log(colores);
+
+const concatenarArrays = (arr1, arr2) => arr1.concat(arr2);
+
+console.log(concatenarArrays([1,2,3,4], [5,6,7,8]));
+
+
+// parametro por defecto
+
+let sumTwo = (num, value = 2) => {
+  return num + value;
+
+};
+
+console.log(sumTwo(8, 3));
+
+
+// REST operator
+
+const restOperator = (...args) => args.length;
+
+console.log(restOperator(1,2,3,4,5,6,));
+
+const array1 = [1, 2, 3, 4];
+
+// 0 + 1 + 2 + 3 + 4
+const initialValue = 0;
+const sumWithInitial = array1.reduce((accumulator, currentValue) => accumulator + currentValue, initialValue);
+
+console.log(sumWithInitial);
+// Expected output: 10
 </script>
