@@ -320,6 +320,8 @@ const restOperator = (...args) => args.length;
 
 console.log(restOperator(1,2,3,4,5,6,));
 
+// REDUCE operator
+
 const array1 = [1, 2, 3, 4];
 
 // 0 + 1 + 2 + 3 + 4
@@ -327,5 +329,26 @@ const initialValue = 0;
 const sumWithInitial = array1.reduce((accumulator, currentValue) => accumulator + currentValue, initialValue);
 
 console.log(sumWithInitial);
+
+
+//REST
+
+const myFunction = (...argumentos) => console.log(argumentos);
+
+myFunction([1,2,3,4,], [5,6,7,8,9]);
+
+// REDUCE operator
+// suma y devuelve el resultado en un arreglo
+
+const suma = (...args) => {
+  return args.reduce((a, b) => a + b, 0);
+};
+
+console.log(suma(5,5,2,10));
 // Expected output: 10
+
+
+
+
+
 </script>
