@@ -347,6 +347,23 @@ const suma = (...args) => {
 console.log(suma(5,5,2,10));
 // Expected output: 10
 
+// Spread ...
+// toma un array y los descompone en sus elementos individuales
+// la funcion los recibe y asigna a sus parámetros correspondientes
+
+const numeros = [5,5,10,8];
+
+const sum = (j, x, y, z) => {
+
+   console.log(j);
+   console.log(x);
+   console.log(y);
+   console.log(z);
+   return j + x + y + z;
+}
+
+
+console.log(sum(...numeros));
 
 
 
