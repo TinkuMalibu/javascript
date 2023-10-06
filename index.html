@@ -354,7 +354,6 @@ console.log(suma(5,5,2,10));
 const numeros = [5,5,10,8];
 
 const sum = (j, x, y, z) => {
-
    console.log(j);
    console.log(x);
    console.log(y);
@@ -362,8 +361,22 @@ const sum = (j, x, y, z) => {
    return j + x + y + z;
 }
 
-
 console.log(sum(...numeros));
+
+// Destructuring. A un objeto le asigno sus propiedades a variables
+
+const dog = {
+  "name": "Cherry",
+  "age" : 3,
+  "type": "Schauzer",
+  };
+
+const {name, age, type} = dog;
+
+console.log(name);
+console.log(age);
+console.log(type);
+
 
 
 
