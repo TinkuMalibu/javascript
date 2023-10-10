@@ -368,7 +368,7 @@ console.log(sum(...numeros));
 const dog = {
   "name": "Cherry",
   "age" : 3,
-  "type": "Schauzer",
+  "type": "Schnauzer",
   };
 
 const {name, age, type} = dog;
@@ -378,7 +378,154 @@ console.log(age);
 console.log(type);
 
 
+const PRONOSTICO_LOCAL = {
+  "ayer" : {
+    maxima: "Demasiado calor ",
+    minima: 18
+  },
 
+  "hoy": {
+    maxima: "mucho calor",
+    minima: "mucho frio",
+    intermedia: "Ni tan tan"
+  },
+
+  "mañana": {
+    maxima: 30,
+    minima: 4
+  }
+}
+
+
+const {hoy: {maxima: maximaHoy, minima: minimaHoy, intermedia: interHoy}} = PRONOSTICO_LOCAL
+const {ayer: {maxima: maximaAyer}} = PRONOSTICO_LOCAL
+
+console.log(maximaHoy, minimaHoy, interHoy);
+
+
+const user = {
+  "John Doe" : {
+    age: 23,
+    email: "jdoe@gmail.com"
+  }
+};
+
+const { "John Doe": {age, email}} = user;
+
+console.log(age, email);
+
+
+
+// desestructuracion con arreglos
+
+let a;
+let b;
+let c;
+
+[a, b, c] = [1,2,3];
+
+console.log(a);
+console.log(b);
+console.log(c);
+
+
+const initialArray = [1,2,3,4,5,6,7,8,9];
+
+let removeFourElements = (arr) => {
+  const [ , , , , ...newArray] = arr;
+  return newArray;
+
+}
+
+const arregloFinal = removeFourElements (initialArray);
+
+console.log(arregloFinal);
+
+
+// Pasar un OBJETO como ARGUMENTO
+
+const promedioNotas = {
+  "nota1": 9,
+  "nota2": 8,
+  "nota3": 7,
+}
+
+const calcularPromedio = ({nota1, nota2, nota3}) => (nota1 + nota2 + nota3) / 3.0;
+
+console.log(calcularPromedio(promedioNotas));
+
+
+let name = "Cecilia";
+let age = 43
+
+console.log(`My name is ${name} and my a ge is ${age}`);
+
+let array = [1,2,3,4,5]
+
+console.log(`This is an array ${JSON.stringify(array)}`);
+
+// USAR INTERPOLACION CON UN OBJETO
+
+const perro = {
+  "nombre": "Cherry",
+  "raza": "Schnauzer"
+};
+
+const SALUDO_MASCOTA = `Hola, mi perro se llama ${perro.nombre} y es un ${perro.raza}.`;
+
+console.log(SALUDO_MASCOTA);
+
+// Crear OBJETOS en una ARROW FUNCTION
+
+let createProfile = (name, nationality, age) => ({name, nationality, age});
+
+console.log(createProfile("Cecilia", "Argentina", 43));
+
+// Declarar funciones dentro de los objetos
+
+const USER = {
+  name: "Cecilia",
+  greeting: () => {
+    return `Hola, mi nombre es ${this.name}`;
+  }
+};
+
+console.log(USER.greeting());
+
+
+// Usar class para crear objetos (UpperCamelCase)
+/* explicación: el nombre de la clase es TransbordadorEspacial, ese transbordador va a tener ciertas propiedades, y va a tener un estado inicial, es decir, se inicializa con una función asociada al objeto - constructor () - y esta es una función que va a llamar al objeto Transbordador automaticamente. Y toma un parámetro (planeta). Debemos saber el planeta de destino para el transbordador espacial. Planeta se va a asignar como una propiedad del objeto TransbordadorEspacial. Se usa this.planet, es decir, el objeto Transbordador espacial va a tener una propiedad llamada planeta. "this" se refiere el objeto que estamos creando. Asignamos el valor del parámetro a la propiedad planeta del objeto que estamos creando. */
+
+//ejemplo 1
+
+class TransbordadorEspacial {
+  constructor (planeta) { // Se inicializa la clase con constructor que lleva un parámetro
+    this.planeta = planeta; //acá se crea la propiedad del objeto y se asigna el valor del parámetro
+  }
+}
+
+// defino una nueva variable con el nombre del Transbordadorespcial:
+//Entre los paréntesis van los argumentos que requiere el constructor, en este caso constructor(planeta)
+
+let zeus = new TransbordadorEspacial("Marte");
+console.log(zeus.planeta);
+let apolo = new TransbordadorEspacial("Jupiter");
+console.log(apolo.planeta);
+
+//ejemplo 2
+class Pet {
+  constructor (name, type, age) {
+    this.name = name;
+    this.type = type;
+    this.age = age;
+  }
+}
+
+let myPet = new Pet ("Cherry", "Schnauzer", 3);
+console.log(myPet);
+let yourPet = new Pet ("Luna", "dog", 8);
+console.log(yourPet);
+console.log(yourPet.name);
 
 
 </script>
